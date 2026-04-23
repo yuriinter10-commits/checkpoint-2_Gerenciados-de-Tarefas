@@ -30,9 +30,19 @@ def concluir_tarefas(indice):
         else: 
             lista_tarefas[indice]['concluida'] = True
             salvar_dados()
-            print("Tarefa Concluida com sucesso! ")
+            print("Tarefa Concluida com sucesso!👌 ")
+  
    except IndexError:
        print("Erro:⚠️ indice invalido! tarefa não executada. ")     
+
+def excluir_tarefa(indice):
+    try:
+        tarefa_removida = lista_tarefas.pop(indice)
+        salvar_dados()
+        print(f"tarefa {tarefa_removida['descricao']} excluida com socesso! 🗑️")
+   
+    except IndexError:
+        print("Erro: ⚠️ Índice inválido! Nenhuma tarefa foi excluída.")
 
 def salvar_dados():
     with open("dados.json","w") as arquivo:
